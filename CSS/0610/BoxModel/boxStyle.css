@@ -1,0 +1,33 @@
+div {
+	width:200px;
+	height:100px;
+	display:inline-block;
+	margin:15px;			
+	border-style:solid;  /* 테두리 스타일 - 실선 */
+}
+        
+#box1 {
+    /* border 스타일 적용 시 속성값을 1개만 지정할 경우
+    4개 방향 테두리 모두 같은 값이 적용*/
+    border-width: 2px;
+}
+
+#box2 {
+    /* border 스타일 적용 시 속성값을 2개 지정할 경우
+    첫 번째 값은 위아래 (top / bottom ) 테두리 값
+    두 번째 값은 좌우 (right / left) 테두리 값*/
+    border-width: thick thin;
+}
+
+#box3 {
+    /* border 스타일 적용 시 속성값을 3개 지정할 경우
+    순서대로 top -> right -> bottom 속성값으로 지정
+    빠져있는 left 속성값의 경우 right와 동일하게 적용*/
+    border-width: thick thin thin;
+}
+
+#box4 {
+    /*border 스타일 적용 시 속성값을 4개 지정할 경우
+    순서대로 top -> right -> bottom -> left 속성값으로 지정*/
+    border-width: 10px 5px 7px 3px;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog Post</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a> | <a href="#">About</a> | <a href="#">Contact</a>
+  </nav>
+  <article>
+    <h1>Blog Title</h1>
+    <h2>By John Doe</h2>
+    <p>Posted on May 31, 2023</p>
+    <img src="https://via.placeholder.com/500" alt="Blog Image" width="500px" height="300px">
+    <p>This is the first paragraph of the blog post. <strong>This sentence is important.</strong></p>
+    <p>This is the second paragraph of the blog post. <em>This sentence is also emphasized.</em></p>
+  </article>
+  <section>
+    <h2>Comments</h2>
+    <ul>
+      <li><strong>Commenter 1:</strong> This is a comment.</li>
+      <li><strong>Commenter 2:</strong> This is another comment.</li>
+    </ul>
+    <form autocomplete="off">
+      <fieldset>
+        <legend>Post a Comment</legend>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required><br>
+        <label for="comment">Comment:</label><br>
+        <textarea id="comment" name="comment" placeholder="Enter your comment" required></textarea><br>
+        <input type="submit" value="Post Comment">
+      </fieldset>
+    </form>
+  </section>
+</body>
+</html>

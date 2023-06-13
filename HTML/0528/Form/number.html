@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>롯데 자이언츠 유니폼 주문하기</title>
+  <link rel="stylesheet" href="css/order2.css">
+</head>
+<body>
+  <h1>롯데 자이언츠 유니폼 주문하기</h1>
+  <div id="container" style="width: 500px;">
+    <form>
+      <fieldset>
+        <legend>상품 선택</legend>
+        <p><b>주문할 상품을 선택해 주세요.</b></p>
+        <ul id="product">
+          <li>
+            <label><input type="checkbox" value="s_3">홈 프로페셔널 유니폼</label>
+            <input type="number" min="0" max="5">개 <small>(최대 5개)</small>
+          </li>
+          <li>
+            <label><input type="checkbox" value="s_5">원정 프로페셔널 유니폼</label>
+            <input type="number" min="0" max="3" value="1">개 <small>(최대 3개)</small>
+          </li>
+          <li>
+            <label><input type="checkbox" value="f_3">홈 레플리카 유니폼</label>
+            <input type="range" min="0" max="5">개 <small>(최대 5개)</small>
+          </li>
+          <li>
+            <label><input type="checkbox" value="f_5">원정 레플리카 유니폼</label>
+            <input type="range" min="0" max="3">개 <small>(최대 3개)</small>
+          </li>
+        </ul>      
+      </fieldset>
+      <div>
+        <input type="submit" value="주문하기">
+        <input type="reset" value="취소하기">
+        <input type="file" />
+        <input type="hidden" name="이름" value="서버로 넘길 값" />
+        <input type=텍스트-입력-필드(EX. "text") autofocus />
+      </div>        
+    </form>
+  </div>
+</body>
+</html>

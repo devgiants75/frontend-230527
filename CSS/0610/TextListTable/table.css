@@ -1,0 +1,4 @@
+table, td, th {
+    caption-side: bottom;
+    border:1px solid black;
+}

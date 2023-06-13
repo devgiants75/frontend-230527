@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>여행 사진 갤러리</title>
+    <link rel="stylesheet" href="d.css">
+</head>
+<body>
+    <h1>여행 사진 갤러리</h1>
+    <p>저의 여행 사진들을 감상하세요.</p>
+    <table>
+        <tr>
+            <th>여행지</th>
+            <th>설명</th>
+            <th>사진</th>
+        </tr>
+        <tr>
+            <td>로마</td>
+            <td>로마의 아름다운 건축물을 즐기세요.</td>
+            <td>
+                <img src="https://cdn.pixabay.com/photo/2020/04/21/19/30/rome-5074421_1280.jpg" alt="Rome" width="300px">
+                <p><a href="rome-details.html">자세히 보기</a></p>
+            </td>
+        </tr>
+        <tr>
+            <td>파리</td>
+            <td>파리의 매력을 느껴보세요.</td>
+            <td>
+                <img src="eiffel-tower-g63d3dad70_1280.jpg" alt="Paris" width="25%">
+                <p><a href="paris-details.html">자세히 보기</a></p>
+            </td>
+        </tr>
+    </table>
+    <h2>평가 제출</h2>
+    <form>
+        <label for="name">이름:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="email">이메일:</label><br>
+        <input type="text" id="email" name="email"><br>
+        <label for="review">여행지 평가:</label><br>
+        <textarea id="review" name="review"></textarea><br>
+        <input type="submit" value="제출">
+    </form>
+</body>
+</html>

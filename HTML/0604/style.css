@@ -1,0 +1,14 @@
+/* 
+안녕하세요 스타일 시트 화면입니다. 
+CSS주석
+*/
+
+h1 {
+    width: 200px;
+    background-color: blue;
+    color: white;
+}
+
+p {
+    font-size: small;
+}
