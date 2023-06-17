@@ -1,3 +1,28 @@
+/* 
+
+웹 문서의 기본 reset.css 
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+img {
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+} 
+
+*/
+____________________________
+
 * {
   margin: 0;
 }
@@ -95,6 +120,10 @@ a {
   display: table;
   table-layout: fixed;
   width: -webkit-fill-available;
+  /*
+    -webkit-fill-available;속성값은
+    width: 100%;와 유사하다.
+     */
   height: 100%;
   border: 1px solid #dadada;
   padding: 14px 17px 13px;
