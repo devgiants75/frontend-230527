@@ -1,0 +1,21 @@
+fab fa-youtube
+fas fa-search
+fas fa-ellipsis-v
+fas fa-caret-down
+fas fa-thumbs-up
+fas fa-thumbs-down
+fas fa-share
+fas fa-plus
+fab fa-font-awesome-flag
+
+MDN Html Elements Reference:
+https://developer.mozilla.org/en-US/d...
+
+Color Tool:
+https://material.io/resources/color
+
+Font Awesome:
+https://fontawesome.com/start
+
+Google Fonts:
+https://fonts.google.com/
