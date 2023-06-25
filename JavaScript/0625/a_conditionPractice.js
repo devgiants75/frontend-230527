@@ -188,6 +188,16 @@ switch (day) {
 
 //? 조건 연산자(삼항 연산자)
 
+//! 사용자 입력 값에 따른 메시지 출력
+
+// 사용자로부터 받은 입력 값에 따라 다른 메시지를 출력
+// else문 예제와 비교 확인
+
+let ageCondition = prompt("Please enter your age.");
+let message = ageCondition >= 18 ? "You are an adult." : "You are a minor.";
+
+alert(message);
+
 //! 조건에 따른 변수 값 할당
 
 // 변수 isRainingCondition에 true값을 할당.
@@ -195,3 +205,19 @@ switch (day) {
 // 해당 값이 거짓일 경우 "Go for a walk" 문자열 값을 activity 변수에 할당
 
 // activity 변수를 console 창에 출력
+
+let isRainingCondition = true;
+let activity = isRainingCondition ? "Stay home and read a book." : "Go for a walk.";
+
+console.log(activity);
+
+//! 로그인 상태에 따른 메시지 출력
+
+// 사용자의 로그인 상태에 따라 다른 메시지를 출력하는 것도 가능
+
+let isLoggedInCondition = false;
+let messageCondition = isLoggedInCondition ? "Welcome back!" : "Please log in.";
+
+console.log(messageCondition);  // "Please log in."
+
+// 조건 연산자를 사용하면, if-else문을 더 간결하고 가독성 좋게 표현
