@@ -57,7 +57,7 @@ parent.addEventListener('click', function(event) {
   alert('부모 요소 클릭');
 });
 
-parent.addEventListener('click', function(event) {
+child.addEventListener('click', function(event) {
   alert('자식 요소 클릭');
   event.stopPropagation(); // 버블링 중지
 }, true);
