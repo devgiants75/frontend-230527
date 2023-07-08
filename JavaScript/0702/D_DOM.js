@@ -133,3 +133,43 @@ body.insertBefore(newDiv, firstChild);
 // removeChild(삭제할 자식 요소);
 
 // body.removeChild(newDiv);
+
+//! 문서 속성 조작
+
+// 문서객체.setAttribute(속성이름, 값)
+// 특정 속성에 값을 지정
+
+// 문서객체.getAttribute(속성이름)
+// 특정 속성을 추출
+
+document.addEventListener('DOMContentLoaded', () => {
+  // 특정 클래스로 요소를 선택
+  const rects = document.querySelectorAll('.rect')
+
+  rects.forEach((rect, index) => {
+    // index값은 [0, 1, 2, 3]이 반복
+    // 1을 더해서 1, 2, 3, 4가 되도록 지정 후 100을 곱해서 너비값을 지정
+    const width = (index + 1) * 100 // 100, 200, 300, 400
+    // const src = `url/너비/높이`
+    const src = `http://placekitten.com/${width}/250`
+    // rect.setAttribute('src', src) // src 속성에 값을 지정
+
+    // HTML 표준에 정의된 속성은 간단한 사용방법을 제공
+    // 메소드를 사용하지 않고 온점을 찍고 속성을 바로 읽는 것이 가능
+    rect.src = src
+  })
+})
+
+//! 스타일 조작
+// 문서 객체의 스타일을 조작할 때는 style 속성을 사용
+
+// CSS != 자바스크립트의 속성이름 설정방식
+
+// background-color: backgroundColor
+// text-align: textAlign
+// font-size: fontSize
+
+//? style객체 조정방식
+h1.style.backgroundColor // 제일 많이 사용
+h1.style['backgroundColor']
+h1.style['background-color']
