@@ -1,18 +1,16 @@
 // TS 개발환경 설정
 
-//! 1. Node.js 설치
-// 공식 웹사이트(구글에서 Node.js 검색)를 통해 설치
-// LTS(Long Term Support) 버전 설치 권장
+//! 1. 노드.js 설치하기
+// 타입스크립트를 컴파일하기 위해 먼저 Node.js를 설치해야 합니다. Node.js 공식 웹사이트에서 LTS(Long Term Support) 버전을 설치해주세요.
+// - LTS(Long Term Support) 버전 설치 권장
 
 // Node.js 설치 확인 명령어
 // cmd(터미널 / 명령 프롬프트)창에서
-
 //? node -v
 
 // Mac OS
 // Command + space: Spotlight 검색 창에서
 // Terminal 입력 후 
-
 //? node -v
 
 // 최신 버전 18.16.1
@@ -28,7 +26,7 @@
 // 최신 버전이 다른 경우
 // npm install -g npm@9.8.0
 
-// 환경 변수
+// 환경 변수 설정
 
 // 재부팅 
 // windows: ctrl + shift + esc ( 프로세스, vsc 작업 끝내기 )
