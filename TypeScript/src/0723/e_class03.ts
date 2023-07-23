@@ -141,3 +141,47 @@
   const user1: User = new User('Seung Ah', '1234');
   console.log(user1);
 }
+
+//! 접근자(getter & setter)
+// : 속성값은 외부에 직접적인 노출을 삼가
+// : 메소드를 노출하여 각각의 속성값에 간접적으로 접근
+
+//? getter(게터): 읽기 접근
+// : 속성 이름의 메소드 정의 앞에 get 키워드를 붙여 속성의 값을 읽어올 때 실행할 함수를 정의
+// : 매개변수를 받을 수 X, 게터의 반환값은 외부에 해당 속성의 값으로 노출
+// const value = instance.prop
+{
+  class Shape {
+    constructor(public vertices: number) {}
+    get _vertices(): number {
+      console.log('Vertices getter called');
+      return 3;
+    }
+  }
+
+  const triangle: Shape = new Shape(3);
+  const vertices = triangle._vertices;
+  console.log(vertices);
+}
+
+//? setter(세터): 쓰기 접근
+// instance.prop = value
+
+{
+  class Shape {
+    private _vertices: number = 3;
+    get vertices(): number {
+      console.log('Vertices getter called');
+      return this._vertices;
+    }
+    set vertices(value: number) {
+      console.log('Vertices setter called');
+      this._vertices = value;
+    }
+  }
+
+  const square: Shape = new Shape();
+  square.vertices = 4;
+  const vertices = square.vertices;
+  console.log(vertices);
+}

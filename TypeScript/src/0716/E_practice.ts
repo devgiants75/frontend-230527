@@ -44,3 +44,44 @@ console.log(readOnlyPerson.celebrate());
 // 유효성 검사
 // 1. 영화가 존재하는지 (!foundMovie)
 // 2. 남은 좌석이 충분하지 않을 경우: 오류 메시지
+
+interface Movie {
+  title: string;
+  director: string;
+  availableSeats: number;
+}
+
+class MovieTicketSystem {
+  private movies: Movie[] = [];
+
+  addMovie(movie: Movie): void {
+    this.movies.push(movie);
+  }
+
+  sellTicket(title: string, number: number): void {
+    const movie = this.movies.find((movie) => movie.title === title);
+    if (!movie) {
+      console.error(`Error: 영화 ${title}을(를) 찾을 수 없습니다.`);
+      return;
+    }
+    if (movie.availableSeats < number) {
+      console.error(`Error: ${title}의 남은 좌석이 부족합니다.`);
+      return;
+    }
+    movie.availableSeats -= number;
+    console.log(`${title} 영화에 대한 ${number}개의 티켓이 판매되었습니다.`);
+  }
+}
+
+// 테스트
+const system = new MovieTicketSystem();
+
+system.addMovie({
+  title: "영화 A",
+  director: "감독 A",
+  availableSeats: 100,
+});
+
+system.sellTicket("영화 A", 10);
+system.sellTicket("영화 A", 200); // Error!
+system.sellTicket("영화 B", 10); // Error!
