@@ -42,6 +42,11 @@ console.log(evens); // [2, 4]
 // 배열의 각 요소에 대해 주어진 리듀서 함수를 실행, 단일 결과값을 반환
 // 배열을 순회하면서 누적 계산 값을 유지
 
+// array.reduce(callback, initialValue)
+// callback: 배열의 각 요소에 대해 실행할 함수
+// total: 이전의 콜백 호출에서 반횐된 값을 유지
+// currentValue: 처리할 현재 요소
+
 let numbersReduce: number[] = [1, 2, 3, 4, 5];
 
 // 첫번 째 인자 (total, currentValue) => total + currentValue : 리듀서 함수
