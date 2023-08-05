@@ -3,6 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/aside.css">
+  <link rel="stylesheet" href="./css/modal.css">
   <title>Document</title>
 </head>
 <body>
@@ -11,8 +18,8 @@
     <aside class="menu-aside hidden-menu">
       <button class="menu-button">▶</button>
 
-      <header class="menu-header">
-        <h1><i class="fa-regular fa-calendar-check"></i>TODOLIST</h1>
+      <header class="aside-header">
+        <h1 class="header-title"><i class="fa-regular fa-calendar-check"></i>TODOLIST</h1>
       </header>
       <nav class="menu-nav">
         <ul class="menu-list">
@@ -84,15 +91,29 @@
     <main class="main-container main-hidden">
       <header class="main-header">
         <h1 class="main-title">ToDo</h1>
-        <div>
+        <div class="todo-input-container">
           <i class="fa-regular fa-file-lines"></i>
           <input type="text" class="todo-input" placeholder="Please enter todo...">
           <button class="add-todo-button"><i class="fa-solid fa-plus"></i></button>
         </div>
       </header>
     </main>
-
   </div>
-  
+  <div class="modal-container modal-hidden">
+    <div class="modal-section">
+      <div class="modal-header">
+        <h1 class="modal-title">ToDo 삭제</h1>
+      </div>
+      <div class="modal-main">
+        <p class="modal-message">ToDo를 삭제하시겠습니까?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="modal-ok-button">확인</button>
+        <button type="button" class="modal-cancel-button">취소</button>
+      </div>
+    </div>
+  </div>
+
+
 </body>
 </html>
