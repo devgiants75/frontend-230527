@@ -25,7 +25,7 @@ class AsideEvent {
     if (menuButton) {
       menuButton?.addEventListener('click', () => {
         // '.menu-aside'클래스를 가진 HTML 요소를 선택해서 'menuAside'에 할당
-        const menuAside: HTMLElement | null = document.querySelector('./menu-aside');
+        const menuAside: HTMLElement | null = document.querySelector('.menu-aside');
 
         // 'menuAside'에 'hidden-menu' 클래스가 있으면, 해당 클래스를 제거하고, 메뉴 버튼의 텍스트를 ◀로 변경
         if (menuAside?.classList.contains('hidden-menu')) {
