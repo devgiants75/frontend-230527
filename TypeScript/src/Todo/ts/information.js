@@ -77,6 +77,46 @@ var InformationEvent = /** @class */ (function () {
             };
         }
     };
+    InformationEvent.prototype.addEventIntroduceModifyClick = function () {
+        // .m-introduce 요소(수정 버튼)를 찾아서
+        // introduceModifyButton 변수에 저장
+        var introduceModifyButton = document.querySelector('.m-introduce');
+        // 해당 버튼이 존재하면
+        // 저장 버튼(.s-introduce)을 찾아서 introduceSaveButton 변수에 저장
+        if (introduceModifyButton) {
+            introduceModifyButton.onclick = function () {
+                var introduceSaveButton = document.querySelector('.s-introduce');
+                // 저장 버튼을 표시하고, 수정 버튼을 숨김
+                introduceSaveButton === null || introduceSaveButton === void 0 ? void 0 : introduceSaveButton.classList.remove('button-hidden');
+                introduceModifyButton.classList.add('button-hidden');
+                // 입력 필드(.introduce-input)를
+                // introduceInput 변수에 저장
+                var introduceInput = document.querySelector('.introduce-input');
+                // 입력 필드가 존재하면, 입력을 활성화
+                if (introduceInput) {
+                    introduceInput.disabled = false;
+                }
+            };
+        }
+    };
+    InformationEvent.prototype.addEventIntroduceSaveClick = function () {
+        var introduceSaveButton = document.querySelector('.s-introduce');
+        if (introduceSaveButton) {
+            introduceSaveButton.onclick = function () {
+                var introduceModifyButton = document.querySelector('m-introduce');
+                introduceModifyButton === null || introduceModifyButton === void 0 ? void 0 : introduceModifyButton.classList.remove('button-hidden');
+                introduceSaveButton.classList.add('button-hidden');
+                var introduceInput = document.querySelector('.introduce-input');
+                if (introduceInput) {
+                    introduceInput.disabled = true;
+                    // 입력된 내용을 userInfo 객체에 저장
+                    var userInfo = InformationService.getInstance().userInfo;
+                    userInfo['introduce'] = introduceInput.value;
+                    localStorage.setItem('userInfo', JSON.stringify(userInfo));
+                }
+            };
+        }
+    };
     // InformationEvent 클래스의 유일한 인스턴스를 저장하는 정적 필드
     InformationEvent.instance = null;
     return InformationEvent;
@@ -91,6 +131,45 @@ var InformationService = /** @class */ (function () {
             this.instance = new InformationService();
         }
         return this.instance;
+    };
+    // 정보 로딩
+    InformationService.prototype.loadInfo = function () {
+        this.loadInfoPhoto();
+        this.loadInfoUser();
+    };
+    // 사진 정보 로딩
+    InformationService.prototype.loadInfoPhoto = function () {
+        var infoPhotoImg = document.querySelector('.info-photo img');
+        if (infoPhotoImg) {
+            var infoPhoto = localStorage.getItem('infoPhoto');
+            if (infoPhoto == null) {
+                infoPhotoImg.src = 'TypeScript\src\Todo\images\noimage.jpg';
+            }
+            else {
+                infoPhotoImg.src = infoPhoto;
+            }
+        }
+    };
+    // 사용자 정보 로딩
+    InformationService.prototype.loadInfoUser = function () {
+        var _this = this;
+        this.userInfo = JSON.parse(localStorage.getItem('userInfo') || "{}");
+        Object.keys(this.userInfo).forEach(function (key) {
+            // 모든 .info-input 요소를 찾아서 반복 처리
+            var infoInputs = document.querySelectorAll('.info-input');
+            infoInputs.forEach(function (input) {
+                // 입력 필드의 id와 userInfo 객체의 키가 일치하면
+                // 해당 값으로 설정
+                if (input.id == key) {
+                    input.value = _this.userInfo[key];
+                }
+            });
+        });
+        var introduceInput = document.querySelector('.introduce-input');
+        // this.userInfo.introduce: userInfo 객체 안에 introduce라는 키로 저장된 값이 존재하는지 확인
+        if (introduceInput && this.userInfo.introduce) {
+            introduceInput.value = this.userInfo.introduce;
+        }
     };
     InformationService.instance = null;
     return InformationService;

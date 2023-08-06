@@ -90,6 +90,51 @@ class InformationEvent {
       }
     }
   }
+
+  addEventIntroduceModifyClick(): void {
+    // .m-introduce 요소(수정 버튼)를 찾아서
+    // introduceModifyButton 변수에 저장
+    const introduceModifyButton = document.querySelector<HTMLButtonElement>('.m-introduce');
+    // 해당 버튼이 존재하면
+    // 저장 버튼(.s-introduce)을 찾아서 introduceSaveButton 변수에 저장
+    if (introduceModifyButton) {
+      introduceModifyButton.onclick = () => {
+        const introduceSaveButton = document.querySelector<HTMLButtonElement>('.s-introduce');
+        // 저장 버튼을 표시하고, 수정 버튼을 숨김
+        introduceSaveButton?.classList.remove('button-hidden');
+        introduceModifyButton.classList.add('button-hidden');
+
+        // 입력 필드(.introduce-input)를
+        // introduceInput 변수에 저장
+        const introduceInput = document.querySelector<HTMLInputElement>('.introduce-input');
+        // 입력 필드가 존재하면, 입력을 활성화
+        if (introduceInput) {
+          introduceInput.disabled = false;
+        }
+      };
+    }
+  }
+
+  addEventIntroduceSaveClick(): void {
+    const introduceSaveButton = document.querySelector<HTMLButtonElement>('.s-introduce');
+    if (introduceSaveButton) {
+      introduceSaveButton.onclick = () => {
+        const introduceModifyButton = document.querySelector<HTMLButtonElement>('m-introduce');
+        introduceModifyButton?.classList.remove('button-hidden');
+        introduceSaveButton.classList.add('button-hidden');
+
+        const introduceInput = document.querySelector<HTMLInputElement>('.introduce-input');
+        if (introduceInput) {
+          introduceInput.disabled = true;
+          // 입력된 내용을 userInfo 객체에 저장
+          const userInfo = InformationService.getInstance().userInfo;
+          userInfo['introduce'] = introduceInput.value;
+
+          localStorage.setItem('userInfo', JSON.stringify(userInfo));
+        }
+      }
+    }
+  }
 }
 
 class InformationService {
@@ -104,8 +149,50 @@ class InformationService {
     }
     return this.instance;
   }
-}
 
+  // 정보 로딩
+  loadInfo(): void {
+    this.loadInfoPhoto();
+    this.loadInfoUser();
+  }
+
+  // 사진 정보 로딩
+  loadInfoPhoto(): void {
+    const infoPhotoImg = document.querySelector<HTMLImageElement>('.info-photo img');
+
+    if (infoPhotoImg) {
+      const infoPhoto = localStorage.getItem('infoPhoto');
+      if (infoPhoto == null) {
+        infoPhotoImg.src = 'TypeScript\src\Todo\images\noimage.jpg';
+      } else {
+        infoPhotoImg.src = infoPhoto;
+      }
+    }
+  }
+
+  // 사용자 정보 로딩
+  loadInfoUser(): void {
+    this.userInfo = JSON.parse(localStorage.getItem('userInfo') || "{}");
+
+    Object.keys(this.userInfo).forEach((key) => {
+      // 모든 .info-input 요소를 찾아서 반복 처리
+      const infoInputs = document.querySelectorAll<HTMLInputElement>('.info-input');
+      infoInputs.forEach((input) => {
+        // 입력 필드의 id와 userInfo 객체의 키가 일치하면
+        // 해당 값으로 설정
+        if (input.id == key) {
+          input.value = this.userInfo[key];
+        }
+      });
+    });
+
+    const introduceInput = document.querySelector<HTMLInputElement>('.introduce-input');
+    // this.userInfo.introduce: userInfo 객체 안에 introduce라는 키로 저장된 값이 존재하는지 확인
+    if (introduceInput && this.userInfo.introduce) {
+      introduceInput.value = this.userInfo.introduce;
+    }
+  }
+}
 
 class FileService {
   private static instance: FileService | null = null;
