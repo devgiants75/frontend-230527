@@ -1,12 +1,13 @@
 //! 타입스크립트 함수
 
 //? 1. 함수의 선언과 호출
-
+{
 function greet(name: string): string {
   return `Hello, ${name}`;
 }
 
 console.log(greet("seungah"));
+}
 
 //? 2. 함수 타입 정의
 
