@@ -3,7 +3,6 @@ interface Todo {
   todoDate: string;
   todoDateTime: string;
   todoContent: string;
-
 }
 
 class TodoEvent {
@@ -28,6 +27,46 @@ class TodoEvent {
       }
     }
   }
+
+  public addEventAddTodoKeyUp(): void {
+    const todoInput: HTMLElement | null = document.querySelector('.todo-input');
+    // 해당 요소가 존재할 경우 로직 실행
+    if (todoInput) {
+      // 키보드를 눌렀을 때의 이벤트를 설정
+      todoInput.onkeyup = (event: KeyboardEvent) => {
+        // 키보드에서 Enter 키를 눌렀을 경우 아래 로직 실행
+        if (event.keyCode === 13) {
+          const addTodoButton: HTMLElement | null = document.querySelector('.add-todo-button');
+          // 해당 버튼의 클릭 이벤트 실행
+          addTodoButton?.click();
+        }
+      }
+    }
+  }
+
+  public addEventRemoveTodoClick(): void {
+    const removeButtons: NodeListOf<HTMLElement> = document.querySelectorAll('.content-footer .remove-button');
+    // 각 삭제 버튼에 대해 로직을 반복 실행
+    removeButtons.forEach((removeButton, index) => {
+      // 버튼 클릭 이벤트 설정
+      removeButton.onclick = () => {
+        // ModalService의 인스턴스를 가져와서 메서드를 사용해 삭제 모달을 표시
+      }
+    })
+
+  }
+
+  public addEventModifyTodoClick(): void {
+    const modifyButtons: NodeListOf<HTMLElement> = document.querySelectorAll('.content-footer .modify-button');
+    // 각 수정 버튼에 대해 로직을 반복 실행
+    modifyButtons.forEach((modifyButton, index) => {
+      // 버튼 클릭 이벤트 설정
+      modifyButton.onclick = () => {
+        // ModalService의 인스턴스를 가져와서 메서드를 사용해 수정 모달을 표시
+      }
+    })
+  }
+
 }
 
 class TodoService {
@@ -55,6 +94,10 @@ class TodoService {
   }
 
   // 로컬 스토리지를 업데이트하고, todoList를 다시 로드하는 메서드
+  public updateLocalStorage(): void {
+    localStorage.setItem('todoList', JSON.stringify(this.todoList));
+    this.loadTodoList();
+  }
 
   // 새로운 Todo 항목을 추가하는 메서드
   public addTodo(): void {
@@ -89,7 +132,10 @@ class TodoService {
       done: false
     }
 
+    //, Todo 객체를 todoList 배열에 추가
     this.todoList.push(todoObj);
+
+    // 변경 사항을 로컬 스토리지에 업데이트
     this.updateLocalStorage();
   }
 

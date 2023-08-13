@@ -26,4 +26,9 @@ window.onload = (): void => {
 
   InformationEvent.getInstance().addEventIntroduceSaveClick();
 
+  //! 할 일 추가 버튼 클릭 이벤트 등록
+  TodoEvent.getInstance().addEventAddTodoClick();
+
+  //! 할 일 추가를 위한 키보드 엔터 이벤트 등록
+  TodoEvent.getInstance().addEventAddTodoKeyUp();
 } 
