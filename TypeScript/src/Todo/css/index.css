@@ -159,3 +159,71 @@
   padding: 5px 20px;
   height: 100%;
 }
+
+/* 전체 Todo 항목들을 포함하는 리스트 스타일 지정 */
+.todo-content-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  width: 100%;
+  height: 85%;
+  /* 리스트의 내용이 높이를 초과할 때 수직 스크롤 표시 */
+  overflow-y: auto;
+}
+
+.content-container {
+  margin: 10px;
+  width: 200px;
+  height: 200px;
+  box-shadow: 0px 0px 5px 1px #dbdbdb;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.content-container:hover {
+  box-shadow: 0px 0px 10px 1px #121212;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 10px;
+  padding-bottom: 5px;
+  height: 20%;
+}
+
+.todo-date {
+  display: flex;
+  align-items: start;
+  height: 100%;
+  font-size: 20px;
+  line-height: 15px;
+}
+
+.todo-date-time {
+  display: flex;
+  align-items: flex-end;
+  font-size: 11px;
+}
+
+.content-main {
+  padding: 10px;
+  height: 65%;
+  /* 단어 내에서 줄바꿈하지 않게 설정 */
+  word-break: keep-all;
+  line-height: 25px;
+}
+
+.content-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  padding-top: 0;
+  height: 15%;
+}
+
+.modify-button, .remove-button {
+  border: none;
+  padding: 5px;
+}
