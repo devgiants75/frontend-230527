@@ -35,7 +35,7 @@ class TodoEvent {
       // 키보드를 눌렀을 때의 이벤트를 설정
       todoInput.onkeyup = (event: KeyboardEvent) => {
         // 키보드에서 Enter 키를 눌렀을 경우 아래 로직 실행
-        if (event.keyCode === 13) {
+        if (event.key === "Enter") {
           const addTodoButton: HTMLElement | null = document.querySelector('.add-todo-button');
           // 해당 버튼의 클릭 이벤트 실행
           addTodoButton?.click();

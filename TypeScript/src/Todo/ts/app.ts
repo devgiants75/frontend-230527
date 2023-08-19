@@ -7,6 +7,7 @@ window.onload = (): void => {
   AsideEvent.getInstance().addEventMainChange();
 
   //! User Information 정보 로드
+  // 정보 서비스의 정보를 로드
   InformationService.getInstance().loadInfo();
 
   //! User Information 이벤트 등록
@@ -31,4 +32,7 @@ window.onload = (): void => {
 
   //! 할 일 추가를 위한 키보드 엔터 이벤트 등록
   TodoEvent.getInstance().addEventAddTodoKeyUp();
+
+  //! 할 일 서비스 초기화(데이터 로드 수행)
+  TodoService.getInstance();
 } 
