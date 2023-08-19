@@ -3,6 +3,8 @@ interface Todo {
   todoDate: string;
   todoDateTime: string;
   todoContent: string;
+  title: string;
+  done: boolean;
 }
 
 class TodoEvent {
@@ -24,6 +26,10 @@ class TodoEvent {
       addTodoButton.onclick = () => {
         //, TodoService의 인스턴스를 가져와서 addTodo 메서드를 실행(Todo 추가)
         TodoService.getInstance().addTodo();
+        const todoInput: HTMLInputElement | null = document.querySelector('.todo-input');
+        if (todoInput) {
+          todoInput.value = '';
+        }
       }
     }
   }
@@ -51,6 +57,7 @@ class TodoEvent {
       // 버튼 클릭 이벤트 설정
       removeButton.onclick = () => {
         // ModalService의 인스턴스를 가져와서 메서드를 사용해 삭제 모달을 표시
+        ModalService.getInstance().showRemoveModal(index);
       }
     })
 
@@ -63,6 +70,7 @@ class TodoEvent {
       // 버튼 클릭 이벤트 설정
       modifyButton.onclick = () => {
         // ModalService의 인스턴스를 가져와서 메서드를 사용해 수정 모달을 표시
+        ModalService.getInstance().showModifyModal(index);
       }
     })
   }

@@ -54,7 +54,6 @@ class ModalEvent {
       }
     }
   }
-
 }
 
 // ModalService 클래스 정의

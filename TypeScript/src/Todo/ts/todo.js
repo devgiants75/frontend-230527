@@ -15,6 +15,10 @@ var TodoEvent = /** @class */ (function () {
             addTodoButton.onclick = function () {
                 //, TodoService의 인스턴스를 가져와서 addTodo 메서드를 실행(Todo 추가)
                 TodoService.getInstance().addTodo();
+                var todoInput = document.querySelector('.todo-input');
+                if (todoInput) {
+                    todoInput.value = '';
+                }
             };
         }
     };
@@ -40,6 +44,7 @@ var TodoEvent = /** @class */ (function () {
             // 버튼 클릭 이벤트 설정
             removeButton.onclick = function () {
                 // ModalService의 인스턴스를 가져와서 메서드를 사용해 삭제 모달을 표시
+                ModalService.getInstance().showRemoveModal(index);
             };
         });
     };
@@ -50,6 +55,7 @@ var TodoEvent = /** @class */ (function () {
             // 버튼 클릭 이벤트 설정
             modifyButton.onclick = function () {
                 // ModalService의 인스턴스를 가져와서 메서드를 사용해 수정 모달을 표시
+                ModalService.getInstance().showModifyModal(index);
             };
         });
     };
